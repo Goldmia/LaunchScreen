@@ -1,0 +1,26 @@
+//
+//  KDYUEYOUBaseViewController.h
+//  KINDIN
+//
+//  Created by 王雪 on 16/1/8.
+//  Copyright © 2016年 王雪. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface KDYUEYOUBaseViewController : UIViewController
+
+@property (nonatomic,strong)UIBarButtonItem *leftNarBtn;
+
+@property (nonatomic,strong)UIBarButtonItem *rightNarBtnOne;
+@property (nonatomic,strong)UIBarButtonItem *rightNarBtnTwo;
+
+- (void)leftNarBtn:(UIBarButtonItem *)btn;
+
+- (void)rightBtnOne:(UIBarButtonItem *)btn;
+
+
+- (void)rightBtnTwo:(UIBarButtonItem *)btn;
+
+
+@end

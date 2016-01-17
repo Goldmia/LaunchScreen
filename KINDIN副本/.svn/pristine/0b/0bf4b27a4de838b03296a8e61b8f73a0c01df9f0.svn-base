@@ -1,0 +1,65 @@
+//
+//  PrefixHeader.pch
+//  KINDIN
+//
+//  Created by LOW on 16/1/6.
+//  Copyright © 2016年 王雪. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#pragma mark -----头文件
+#import "KDTools.h"
+#import "KDThirdPart.h"
+#import "KDRequestTools.h"
+#import "KDYUEYOUBaseViewController.h"
+
+#pragma mark ----log
+#ifdef DEBUG
+#define XYLog(fmt, ...) NSLog((@"%s---- " fmt), __FUNCTION__, ##__VA_ARGS__);
+#define XYNSLog(fmt, ...) NSLog((fmt), ##__VA_ARGS__);
+#else
+#define XYLog(...);
+#define XYNSLog(fmt, ...)
+#endif
+
+#pragma mark ---- 判断设备
+
+#define IsiPhone4 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define IsiPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define IsiPhone6 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size) : NO)
+
+
+#define iPhone6Plus ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define IsiPhone6p ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size) : NO)
+
+
+#define IOS8  [[[UIDevice currentDevice] systemVersion] floatValue] >= 8
+#define IOS7  [[[UIDevice currentDevice] systemVersion] floatValue] >= 7
+#define IOS6  [[[UIDevice currentDevice] systemVersion] floatValue] < 7
+
+
+#define kSCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
+#define kSCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#endif /* PrefixHeader_pch */

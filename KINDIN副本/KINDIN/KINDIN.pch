@@ -1,0 +1,107 @@
+//
+//  PrefixHeader.pch
+//  KINDIN
+//
+//  Created by LOW on 16/1/6.
+//  Copyright © 2016年 王雪. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#pragma mark -----头文件
+#import "KDTools.h"
+#import "KDThirdPart.h"
+#import "KDRequestTools.h"
+#import "KDYUEYOUBaseViewController.h"
+
+#pragma mark ----log
+#ifdef DEBUG
+#define XYLog(fmt, ...) NSLog((@"%s---- " fmt), __FUNCTION__, ##__VA_ARGS__);
+#define XYNSLog(fmt, ...) NSLog((fmt), ##__VA_ARGS__);
+#else
+#define XYLog(...);
+#define XYNSLog(fmt, ...)
+#endif
+
+#pragma mark ---- 判断设备
+
+#define IsiPhone4 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define IsiPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define IsiPhone6 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size) : NO)
+
+
+#define iPhone6Plus ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define IsiPhone6p ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size) : NO)
+
+
+#define IOS8  [[[UIDevice currentDevice] systemVersion] floatValue] >= 8
+#define IOS7  [[[UIDevice currentDevice] systemVersion] floatValue] >= 7
+#define IOS6  [[[UIDevice currentDevice] systemVersion] floatValue] < 7
+
+
+#define kSCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
+#define kSCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
+
+
+/**
+ 防止更换服务器时注释代码的麻烦以及不清楚使用的是正式服务器还是测试服务器，所有定义了一个宏来规定使用的
+ 是正式服务器还是测试服务器。替换服务器只需要更改OFFICIALORTEST的值。0代表的是开发服务器，1代表的是正式服务器，2代表测试服务器
+ **/
+#define OFFICIALORTEST 1 // 1 是正式服务器  0 是开发服务器   2是测试服务器
+
+#if  OFFICIALORTEST == 1
+
+#define GDMAPKEY @"9b7b2cb071203f3dc26fa6907511b7bd"//正式  高德地图key BD:com.kindin.jdy
+// 阿里
+#define HTTPHANDER @"http://app.kindin.com.cn"
+
+#define HTTPHANDER_HOT @"http://ebooking.kindin.com.cn"
+
+#define PhotoImage @"http://kindin-web.oss-cn-beijing.aliyuncs.com/"
+
+
+#elif OFFICIALORTEST==0   //开发服务器
+
+#define GDMAPKEY @"ba7dccb164d1e2aebede1ee738eab199"  //BD: com.kindin.jdy.test
+
+#define HTTPHANDER @"http://27.54.214.11:8080/LoveU"
+
+#define PhotoImage @"http://kindin-web.oss-cn-beijing.aliyuncs.com/"
+#define HTTPHANDER_HOT @"http://dev.kindin.com.cn/LoveU"
+
+
+#else//测试服务器
+
+#define GDMAPKEY @"94e81acf50527b22de6eedc9088eb2e8" // BD：com.kindin.jdy.aws
+
+#define HTTPHANDER @"http://elf-986326266.cn-north-1.elb.amazonaws.com.cn:8081/LoveU"
+#define PhotoImage @"http://kindin-web.oss-cn-beijing.aliyuncs.com/"
+#define HTTPHANDER_HOT @"http://elf-986326266.cn-north-1.elb.amazonaws.com.cn:8081/LoveU"
+
+
+#endif
+
+
+//酒店正式服务器url（暂时）
+#define httpHotelUrl @"http://ebooking.kindin.com.cn"//酒店的接口
+#define carRentalUrl @"http://webapp.diditaxi.com.cn"
+#define didiChannelNumber 70291
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#endif /* PrefixHeader_pch */
